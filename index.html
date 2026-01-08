@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercado da Bola 2026 | Tracker de Transferências</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-futbol"></i>
+                <h1>MERCADO <span class="highlight">DA BOLA</span></h1>
+            </div>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Busque por jogador ou time...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Stats Hero -->
+    <section class="hero-stats">
+        <div class="container">
+            <div class="stat-card">
+                <h3>Total Movimentado</h3>
+                <p id="totalSpent">R$ 0,00</p>
+            </div>
+            <div class="stat-card">
+                <h3>Contratação Mais Cara</h3>
+                <p id="topTransfer">-</p>
+            </div>
+            <div class="stat-card">
+                <h3>Última Atualização</h3>
+                <p>08/01/2026</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Filter (Carousel) -->
+    <section class="teams-filter-section">
+        <div class="container mobile-scroll">
+            <div class="teams-track" id="teamsTrack">
+                <!-- Team Badges Injected via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters -->
+    <section class="filters-section">
+        <div class="container">
+            <div class="filters-row">
+                <!-- Status Buttons -->
+                <div class="filter-group status-group">
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="confirmed">Confirmados</button>
+                    <button class="filter-btn" data-filter="rumor">Rumores</button>
+                </div>
+
+                <!-- Advanced Filters -->
+                <div class="filter-group advanced-group">
+                    <select id="teamFilter" class="filter-select">
+                        <option value="">Todos os Times</option>
+                        <!-- Populated by JS -->
+                    </select>
+
+                    <select id="positionFilter" class="filter-select">
+                        <option value="">Todas Posições</option>
+                        <!-- Populated by JS -->
+                    </select>
+
+                    <div class="date-filter">
+                        <input type="date" id="startDate" class="filter-date" placeholder="De">
+                        <span>até</span>
+                        <input type="date" id="endDate" class="filter-date" placeholder="Até">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="transfers-feed">
+        <div class="container">
+            <h2 class="section-title">Últimas Transferências</h2>
+            <div id="transfersGrid" class="transfers-grid">
+                <!-- Cards will be injected via JS -->
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Mercado da Bola Tracker. Dados fictícios para demonstração.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
