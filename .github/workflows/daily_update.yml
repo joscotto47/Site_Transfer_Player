@@ -1,0 +1,35 @@
+name: Daily Transfer Update
+
+on:
+  schedule:
+    # Run at 15:00 UTC (12:00 BRT) every day
+    - cron: '0 15 * * *'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Needed to push changes
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Update Script
+        run: npm run update-data
+
+      - name: Commit and Push changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: daily transfer data update [skip ci]"
+          file_pattern: data.js
+          branch: main
